@@ -1,8 +1,6 @@
-from flask import Flask, render_template
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, Email
+from flask import Flask, render_template, request
 import os
+from form import LoginForm
 
 SECRET_KEY = os.urandom(32)
 
@@ -11,16 +9,14 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
 
 
-class LoginForm(FlaskForm):
-    email = StringField(label='Email', validators=[DataRequired(), Email(message="either @ or you missed.")])
-    password = PasswordField(label='Password', validators=[DataRequired()])
-    submit = SubmitField(label="Log In")
-
-
 @app.route("/", methods=['GET', 'POST'])
 def home():
     login = LoginForm()
-    login.validate_on_submit()
+    if login.validate_on_submit():
+        if login.email.data == "admin@email.com" and login.password.data == "12345678":
+            return render_template("success.html")
+        else:
+            return render_template("denied.html")
     return render_template('login.html', form=login)
 
 
