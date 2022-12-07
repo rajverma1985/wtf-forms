@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>What are you doing?</title>
-    <h2>What are you doing?</h2>
-    <h1><img src="https://media.giphy.com/media/y9gcCOXpNX8UfZrp0X/giphy.gif?cid=ecf05e47zc92kykcd0h44h1bqkjxwnp83p0lduzmmdphloat&rid=giphy.gif&ct=g"></h1>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}
+wonderful
+{% endblock %}
 
+{% block styling %}
+{{ super() }}
+   h1 {
+      color:red;
+   }
+{% endblock %}
+<body>
+{% block content %}
+    <h1>what a mess!</h1>
+    <div class="container">
+        <h1><img src="https://media.giphy.com/media/y9gcCOXpNX8UfZrp0X/giphy.gif?cid=ecf05e47zc92kykcd0h44h1bqkjxwnp83p0lduzmmdphloat&rid=giphy.gif&ct=g"></h1>
+    </div>
+{% endblock %}
 </body>
-</html>

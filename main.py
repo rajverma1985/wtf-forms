@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
+import flask_bootstrap
 import os
 from form import LoginForm
 
@@ -7,6 +8,7 @@ SECRET_KEY = os.urandom(32)
 WTF_CSRF_SECRET_KEY = 'a random string'
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
+app.config(flask_bootstrap)
 
 
 @app.route("/", methods=['GET', 'POST'])

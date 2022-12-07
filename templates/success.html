@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Wonderful</title>
-    <h2>Damn bro!</h2>
-    <h1><img src="https://media.giphy.com/media/o75ajIFH0QnQC3nCeD/giphy.gif?cid=ecf05e47lf75h7herakksv3o2k8p0xfy7erme2eem0wmdw10&rid=giphy.gif&ct=g"></h1>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}
+wonderful
+{% endblock %}
 
+{% block styling %}
+{{ super() }}
+   h1 {
+      color:green;
+   }
+{% endblock %}
+<body>
+{% block content %}
+<h1>Wonderful WORK!</h1>
+<div>
+    <img src="https://media.giphy.com/media/o75ajIFH0QnQC3nCeD/giphy.gif?cid=ecf05e47lf75h7herakksv3o2k8p0xfy7erme2eem0wmdw10&rid=giphy.gif&ct=g">
+</div>
+{% endblock %}
 </body>
-</html>
